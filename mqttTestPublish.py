@@ -18,6 +18,6 @@ client.connect("47.106.145.133", 1883)
 
 while client.loop() == 0:
     msg = "from Publisher " + time.ctime()
-    client.publish("test/rensanning/time", msg, 0, True)
+    client.publish(topic="test/rensanning/time", payload=msg, qos=0, retain=True)
     print("message published")
     time.sleep(1.5)
