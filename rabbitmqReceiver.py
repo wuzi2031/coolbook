@@ -8,17 +8,18 @@ channel = connection.channel()
 # We could avoid that if we were sure that the queue already exists. For example if send.py program
 # was run before. But we're not yet sure which program to run first. In such cases it's a good
 # practice to repeat declaring the queue in both programs.
-#通道的实例
+# 通道的实例
 channel.queue_declare(queue='hello')
 
 
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
 
-#收到消息就调用这个
+
+# 收到消息就调用这个
 channel.basic_consume(callback,
                       queue='hello',
                       no_ack=True)
 
 print(' [*] Waiting for messages. To exit press CTRL+C')
-channel.start_consuming()    #开始消息，是个死循环，一直监听收消息
+channel.start_consuming()  # 开始消息，是个死循环，一直监听收消息

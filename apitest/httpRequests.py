@@ -10,19 +10,15 @@ class Method(Enum):
 
 
 class HttpUtil:
-    def __init__(self, url="", data="", header="", method=Method.GET):
+    def __init__(self, url="", body="", header="", method=Method.GET):
         self.url = url
-        self.data = data
+        self.data = body
         self.__initHeader(header)
         self.method = method
 
     def __initHeader(self, header):
-        self.headers = {'Host': self.url[8:],
-                        'Connection': 'keep-alive',
-                        'Cache-Control': 'max-age=0',
-                        'Accept': 'text/html, */*; q=0.01',
-                        'Accept-Encoding': 'gzip,deflate,br',
-                        'Accept-Language': 'zh-CN,zh;q=0.8,ja;q=0.6'
+        self.headers = {
+                        'Content-Type': 'application/json'
                         }
         self.headers.update(header)
         print("header:" + self.headers.__str__())
@@ -32,9 +28,7 @@ class HttpUtil:
         isexcept = False
         if self.method == Method.POST:
             try:
-                re = requests.post(self.url, headers=self.headers, data=self.data)
-                print("re:" + re.__str__())
-                re = re.json()
+                re = requests.post(self.url, headers=self.headers, data=self.data).json()
             except Exception as e:
                 re = e
                 isexcept = True
