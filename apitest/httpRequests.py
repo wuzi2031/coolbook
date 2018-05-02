@@ -10,20 +10,19 @@ class Method(Enum):
 
 
 class HttpUtil:
-    def __init__(self, url="", body="", header="", method=Method.GET):
-        self.url = url
-        self.data = body
-        self.__initHeader(header)
-        self.method = method
 
     def __initHeader(self, header):
         self.headers = {
                         'Content-Type': 'application/json'
                         }
         self.headers.update(header)
-        print("header:" + self.headers.__str__())
 
-    def request(self):
+
+    def request(self, url="", body="", header="", method=Method.GET):
+        self.url = url
+        self.data = body
+        self.__initHeader(header)
+        self.method = method
         re = object
         isexcept = False
         if self.method == Method.POST:
