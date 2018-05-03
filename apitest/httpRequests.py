@@ -18,6 +18,7 @@ class HttpUtil:
         self.headers.update(header)
 
 
+
     def request(self, url="", body="", header="", method=Method.GET):
         self.url = url
         self.data = body
