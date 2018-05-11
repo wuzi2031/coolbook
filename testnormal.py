@@ -53,8 +53,10 @@ print(list("adfsd"))
 print("dfs"+'fsd')
 print("123".join(('d','d')))
 
-MQTTv311 = 4
+print([x*2 for x in range(1,11)])
+print(list(map(lambda x:x*2,range(1,11))))
+wordlist = ["scala", "akka", "play framework", "sbt", "typesafe"]
 
-def testFun(m=MQTTv311):
-    print(m)
-testFun()
+tweet = "This is an example tweet talking about scala and sbt."
+
+print(list(filter(lambda x: x in tweet.split(), wordlist)))
