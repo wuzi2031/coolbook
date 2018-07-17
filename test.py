@@ -1,7 +1,10 @@
-print([x*2 for x in range(1,11)])
-print(list(map(lambda x:x*2,range(1,11))))
-wordlist = ["scala", "akka", "play framework", "sbt", "typesafe"]
+import os
+print(os.path.join("a/v","bvv"))
+print("a".join("bbb"))
 
-tweet = "This is an example tweet talking about scala and sbt."
-
-print(list(filter(lambda x: x in tweet.split(), wordlist)))
+class A:
+    str=""
+class B(A):
+    str = "dfad"
+print(A.str)
+print(B.str)

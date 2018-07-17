@@ -60,3 +60,32 @@ wordlist = ["scala", "akka", "play framework", "sbt", "typesafe"]
 tweet = "This is an example tweet talking about scala and sbt."
 
 print(list(filter(lambda x: x in tweet.split(), wordlist)))
+
+class A:
+    def fun1(self):
+        print(self.__class__.__name__ + ":fun1A")
+        pass
+
+    def fun2(self):
+        print(self.__class__.__name__ + ":fun2A")
+        self.fun()
+
+
+class Mix:
+    def fun(self):
+        print(print(self.__class__.__name__ + ":fun"))
+
+
+class B(A, Mix):
+    def fun1(self):
+        print(print(self.__class__.__name__ + ":fun1B"))
+a = A()
+# a.fun1()
+# a.fun2()
+b = B()
+b.fun1()
+b.fun2()
+
+import os
+print(os.path.join("a/v","bvv"))
+print("a".join("bbb"))

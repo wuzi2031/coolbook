@@ -1,7 +1,8 @@
 import pika
 
+credentials = pika.PlainCredentials('admin', 'admin')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    'localhost'))
+    '120.79.16.35', port=5672, credentials=credentials))
 channel = connection.channel()
 
 # You may ask why we declare the queue again ‒ we have already declared it in our previous code.

@@ -1,8 +1,9 @@
 import pika
 import sys
 
+credentials = pika.PlainCredentials('admin', 'admin')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    host='localhost'))
+    '120.79.16.35', port=5672, credentials=credentials))
 channel = connection.channel()
 
 channel.exchange_declare(exchange='topic_logs',

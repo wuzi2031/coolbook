@@ -28,7 +28,8 @@ class HttpUtil:
         isexcept = False
         if self.method == Method.POST:
             try:
-                re = requests.post(self.url, headers=self.headers, data=self.data).json()
+                re = requests.post(self.url, headers=self.headers, data=self.data)
+                print(re)
             except Exception as e:
                 re = e
                 isexcept = True

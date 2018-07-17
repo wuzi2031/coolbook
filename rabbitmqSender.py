@@ -1,7 +1,8 @@
 import pika
 
+credentials = pika.PlainCredentials('admin', 'admin')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    'localhost'))  # localhost改成：192.168.1.118
+    '120.79.16.35', port=5672, credentials=credentials))  # localhost改成：192.168.1.118
 channel = connection.channel()  # 建立了rabbit协议的通道
 
 # 声明queue
