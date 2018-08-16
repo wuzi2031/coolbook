@@ -1,3 +1,5 @@
+
+#下次迭代时，代码从yield的下一跳语句开始执行。
 class GeneratorTest:
     def oddNumber(self,maxNum,minNum=0):
         if(minNum<0 or maxNum<0):
