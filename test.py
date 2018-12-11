@@ -16,3 +16,9 @@ def test():
     print(var)
 var='dd'
 test()
+
+a=[1,2,3,4,5]
+b=[3,4,7,8,9]
+tem=[]
+a.extend(b)
+print(set(sorted(a)))
