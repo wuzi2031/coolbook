@@ -12,13 +12,24 @@ print(dict(zip(xx, yy)))
 for r in map(lambda x: x + "1", xx):
     print(r)
 var = 'ss'
+
+
 def test():
     print(var)
-var='dd'
+
+
+var = 'dd'
 test()
 
-a=[1,2,3,4,5]
-b=[3,4,7,8,9]
-tem=[]
+a = [1, 2, 3, 4, 5]
+b = [3, 4, 7, 8, 9]
+tem = []
 a.extend(b)
 print(set(sorted(a)))
+
+
+import pyclbr
+
+
+def getModuleCls(module_name):
+    return [x for x in pyclbr.readmodule(module_name).keys()]
