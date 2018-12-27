@@ -1,6 +1,10 @@
 def compare_two_dict(compared_dict, contain_dict):
-    print(compared_dict)
-    print(contain_dict)
+    """
+    判断是否包含另一个dict，有数组的情况暂不支持
+    :param compared_dict:
+    :param contain_dict: 被包含的dict
+    :return:
+    """
     flag = True
     if (compared_dict and contain_dict):
         if (isinstance(compared_dict, dict) and isinstance(contain_dict, dict)):
@@ -40,7 +44,7 @@ if __name__ == '__main__':
         'a': {
             'e': 5
         },
-        'b': 2,
+
         'c': 3,
         'd': {
             'e': 5
