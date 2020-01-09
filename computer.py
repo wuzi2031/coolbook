@@ -154,22 +154,22 @@ class Computer:
         print('请输入:')
         while (True):
             input_info = input()
-            # try:
-            if (Computer.CLEAN == input_info):
-                self.__sum = 0
-                self.visit_sum()
-            elif (Computer.EXIT == input_info):
-                sys.exit(0)
-            else:
-                input_info = self.check_input(input_info)
-                if (input_info):
-                    self.compute_exp(self.gen_express_arr(input_info))
+            try:
+                if (Computer.CLEAN == input_info):
+                    self.__sum = 0
                     self.visit_sum()
+                elif (Computer.EXIT == input_info):
+                    sys.exit(0)
                 else:
-                    print('输入的格式不正确')
-        # except Exception as e:
-        #     # print(e)
-        #     print('计算有误，请重试')
+                    input_info = self.check_input(input_info)
+                    if (input_info):
+                        self.compute_exp(self.gen_express_arr(input_info))
+                        self.visit_sum()
+                    else:
+                        print('输入的格式不正确')
+            except Exception as e:
+                # print(e)
+                print('计算有误，请重试')
 
 
 Computer().start()
