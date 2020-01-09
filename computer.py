@@ -44,7 +44,7 @@ class Computer:
         if Computer.ADD in input_info or Computer.RED in input_info or Computer.MUT in input_info or Computer.DIV in input_info:
             info_mark = ''.join(re.split('\d+', input_info))  # 数子移除后的字符串
             last_str = info_mark.replace(Computer.ADD, '').replace(Computer.RED, '').replace(Computer.MUT, '').replace(
-                Computer.DIV, '').replace(Computer.LE, '').replace(Computer.RI, '')  # 运算符移除后的字符串
+                Computer.DIV, '').replace(Computer.LE, '').replace(Computer.RI, '').replace('.', '')  # 运算符移除后的字符串
             if last_str == '':
                 return input_info
             else:
@@ -64,7 +64,7 @@ class Computer:
                     info_arr.append(data)
                 info_arr.append(s)
                 last_is_num = False
-            elif s.isdigit():
+            elif s.isdigit() or s is '.':
                 if last_is_num == True:
                     data = data + s
                 else:
@@ -125,7 +125,7 @@ class Computer:
         return result_sub
 
     def compute_exp(self, exp_arr):
-        # print(exp_arr)
+        print(exp_arr)
         exp_count = 0
         sub_exp_dict = {exp_count: []}
         for value in exp_arr:
@@ -154,22 +154,22 @@ class Computer:
         print('请输入:')
         while (True):
             input_info = input()
-            try:
-                if (Computer.CLEAN == input_info):
-                    self.__sum = 0
+            # try:
+            if (Computer.CLEAN == input_info):
+                self.__sum = 0
+                self.visit_sum()
+            elif (Computer.EXIT == input_info):
+                sys.exit(0)
+            else:
+                input_info = self.check_input(input_info)
+                if (input_info):
+                    self.compute_exp(self.gen_express_arr(input_info))
                     self.visit_sum()
-                elif (Computer.EXIT == input_info):
-                    sys.exit(0)
                 else:
-                    input_info = self.check_input(input_info)
-                    if (input_info):
-                        self.compute_exp(self.gen_express_arr(input_info))
-                        self.visit_sum()
-                    else:
-                        print('输入的格式不正确')
-            except Exception as e:
-                # print(e)
-                print('计算有误，请重试')
+                    print('输入的格式不正确')
+        # except Exception as e:
+        #     # print(e)
+        #     print('计算有误，请重试')
 
 
 Computer().start()
